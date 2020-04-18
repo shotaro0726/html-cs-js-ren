@@ -1,0 +1,132 @@
+@import url(sanitize.css);
+@import url('https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap');
+
+body {
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+header {
+    background-color:green;
+    padding: 10px;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+.description {
+    clear: left;
+}
+
+
+.description img {
+    float: left;
+    margin: 0 10px 10px 0;
+
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.description img:hover {
+    opacity: .5;
+}
+
+.information h1{
+    font-size: 18px;
+    margin: 0 10px 10px 0;
+    float: left;
+}
+
+.information .type {
+    background-color: #E35A4D;
+    display: inline;
+    padding: 3px 5px;
+    font-size: 80%;
+    color: #FFF;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.shot {
+    margin: 0 0 20px;
+}
+
+.shot h2 {
+    clear: left;
+    font-size: 100%;
+    font-weight:  normal;
+    margin: 0;
+    background-color:green;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.shot ol {
+    padding: 0;
+    margin: 0;
+    list-style: decimal inside;
+}
+
+.shot li {
+    border-bottom: 1px solid #CCC;
+    width: 50%;
+    float: left;
+    padding: 5px 10px;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+a {
+    color:  green;
+    /* 下線をなくす   */
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 80%;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px){
+    .description img {
+        float: none;
+        margin: 0 auto;
+        display: block;
+    }
+    header {
+        padding: 5px;
+    }
+
+    header h1 {
+        font-size: 12px;
+    }
+
+    .shot li {
+        float: none;
+        width: inherit;
+    }
+}

@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#mouseMoveWrapper {
+    width: 100vm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#mouseMove {
+    height: 90vh;
+    width: 90vw;
+    border: solid 1px black;
+}
+
+.dot {
+    position: absolute;
+    background-color: black;
+    width: 1px;
+    height: 1px;
+    transform: translateY(-50%) translateX(-50%);
+}

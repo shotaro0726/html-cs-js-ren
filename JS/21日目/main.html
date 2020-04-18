@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <p id="timer">00:00:00</p>
+
+        <div>
+            <button id="start_stop" class="btn btn-lg btn-primary">Start</button>
+        </div>
+
+    </div>
+
+    <script>
+        let start;
+        let timer_id;
+
+        document.getElementById('start_stop').addEventListener('click', function () {
+
+            if (this.innerHTML === 'Start') {
+
+                start = new Date();
+                timer_id.setInterval(goTimer, 10);
+
+                this.innerHTML = 'STOP';
+                this.classList.remove('btn-primary');
+                this.classList.add('btn-danger');
+
+            } else {
+                clearInterval(timer_id);
+
+                this.innerHTML('Stop');
+                this.classList.remove('btn-danger');
+                this.classList.add('btn-primary');
+            }
+
+        });
+
+        function addZero(value) {
+            if (value < 10) {
+                value = '0' + value;
+            }
+            return value
+        }
+
+        function goTimer() {
+            const now = new Date();
+            const mill = new.getTime() - start.getTime();
+            const seconds = Math.floor(mill / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+
+            seconds = seconds - minutes * 60;
+            minutes = minutes - hours * 60;
+
+            seconds = addZero(second);
+            minutes = addZero(minutes);
+            hours = addZero(hours);
+
+            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+        }
+
+        /*
+        //ゼロを追加する
+        function addZero(value) {
+            if (value < 10) { //10未満の時に以下の処理をする
+                value = '0' + value;
+            }
+            return value
+        }
+
+        document.getElementById('start_stop').addEventListener('click', function () {
+
+            var now = new Date(); //インスタンス化
+            var second = now.getSeconds(); //秒を代入
+
+            seconds = addZero(second);
+
+            var minutes = now.getMinutes();
+
+            minutes = addZero(minutes);
+
+            var hours = now.getHours();
+
+            hours = addZero(hours);
+
+            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + second;
+        }); */
+
+    </script>
+</body>
+
+</html>
